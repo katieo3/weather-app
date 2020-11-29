@@ -1,0 +1,83 @@
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+  border: solid 3px;
+  border-radius: 3px;
+  border-color: #ebecee;
+  padding-top: 10px;
+  padding-bottom: 15px;
+}
+
+h1 {
+  font-size: 30px;
+  color: #016ec6;
+  font-weight: bold;
+  padding-top: 10px;
+}
+
+h2 {
+  font-size: 20px;
+  color: #5a6276;
+  font-weight: 800;
+}
+
+h3 {
+  font-size: 20px;
+  color: #5a6276;
+  font-weight: 800;
+}
+
+.current-button {
+  font-size: 10px;
+}
+
+.sunrise {
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.sunset {
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.weatherDetails {
+  font-size: 18px;
+}
+
+.weatherDetails #current-temperature {
+  font-weight: 900px;
+  font-size: 25px;
+}
+.weatherDetails #weather-report {
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.units {
+  position: relative;
+  top: -10px;
+  font-weight: bold;
+}
+
+ul {
+  margin-left: -35px;
+}
+li {
+  list-style: none;
+  display: block;
+}
+
+.weekdays {
+  font-size: 20px;
+  text-align: center;
+}
+.weekdaysEmojis {
+  font-size: 20px;
+  text-align: center;
+  color: #016ec6;
+}
