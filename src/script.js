@@ -1,33 +1,30 @@
+
 // Ensuring hours and minutes always display two numbers
-let now = new Date();
-let hours = now.getHours();
-let minutes = now.getMinutes();
-let date = now.getDate();
- 
+function formatDate(timestamp) {
+
+let date = new Date(timestamp);
+let weekDate = date.getDate();
+let hours = date.getHours();
  if (hours < 10) {
  hours = `0${hours}`;
 }
- 
- if (minutes < 10) {
- minutes = `0${minutes}`;
+let minutes = date.getMinutes();
+if (minutes < 10) {
+minutes = `0${minutes}`;
 }
  
- 
-// Adding the days
+ // Adding the days
 let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-let day = days[now.getDay()];
+let day = days[date.getDay()];
 // Adding the variables for the date
 let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-let month = months[now.getMonth()];
+let month = months[date.getMonth()];
  
+return `${day}, ${month} ${weekDate}, ${hours}:${minutes}`;
+
  
-// Query Selector accessing the h1 and h2
-let h2 = document.querySelector("h2");
-h2.innerHTML = `${day}, ${month} ${date}`;
- 
-let h3 = document.querySelector("h3");
-h3.innerHTML = `${hours}:${minutes}`;
- 
+}
+
 // Query Selector accessing the h1
 function showConditions(response) {
   console.log(response.data);
@@ -39,14 +36,15 @@ document.querySelector("h1").innerHTML = response.data.name;
 //let unixTimeSunset = new Date(response.data.sys.sunset * 1000); 
 //let unixHoursSunset = unixTimeSunset.getHours();
 //let unixMinutesSunset = "0" + unixTimeSunrise.getMinutes();
+//document.querySelector("#sunrise").innerHTML = `Sunrise: ${unixHoursSunrise}:${unixMinutesSunrise}`;
+//document.querySelector("#sunset").innerHTML = `Sunset: ${unixHoursSunset}:${unixMinutesSunset}`;
 
 document.querySelector("#current-temperature").innerHTML = `${Math.round(response.data.main.temp)}°`;
 document.querySelector("#weather-report").innerHTML = (response.data.weather[0].description);
-//document.querySelector("#sunrise").innerHTML = `Sunrise: ${unixHoursSunrise}:${unixMinutesSunrise}`;
-//document.querySelector("#sunset").innerHTML = `Sunset: ${unixHoursSunset}:${unixMinutesSunset}`;
 document.querySelector("#humidity").innerHTML = `Humidity: ${Math.round(response.data.main.humidity)}%`;
 document.querySelector("#wind").innerHTML = `Wind: ${Math.round((response.data.wind.speed)*3.6)} km/h`;
 document.querySelector("#feels-like").innerHTML = `Feels Like: ${Math.round(response.data.main.feels_like)}°C`;
+document.querySelector("#dateAPI").innerHTML = formatDate(response.data.dt * 1000);
 
 }
 

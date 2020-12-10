@@ -15,14 +15,20 @@ body {
 }
 
 h1 {
-  font-size: 30px;
+  font-size: 27px;
   color: #016ec6;
   font-weight: bold;
   padding-top: 10px;
 }
 
 h2 {
-  font-size: 20px;
+  font-size: 18px;
+  color: #5a6276;
+  font-weight: 800;
+}
+
+.lastUpdated {
+  font-size: 18px;
   color: #5a6276;
   font-weight: 800;
 }

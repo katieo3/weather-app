@@ -40,7 +40,10 @@
                 <div class="col-6">
                     <ul>
                         <li>
-                            <h2></h2>
+                            <span class="lastUpdated">Last updated:</span>
+                        </li>
+                        <li>
+                            <h2 id="dateAPI">Date</h2>
                         </li>
                         <li>
                             <h3 id="time"></h3>
@@ -71,8 +74,8 @@
                     <div class="weather-description"></div>
                     <i class="fas fa-moon"></i></li>
                     <br>
-
-                  <strong>  <span id="current-temperature">°</span></strong>
+                    
+                    <strong>  <span id="current-temperature">°</span></strong>
                     <span class="units">
                         <a href="#" id="celsius">C</a>
                         <span>|</span>
@@ -85,10 +88,7 @@
 
                 <div class="col-6">
                     <ul>
-
-                        <strong>
-                            <li id="feels-like">Feels like: </li>
-                        </strong>
+                        <li id="feels-like">Feels like: </li>
                         <li id="humidity">Humidity 78%</li>
                         <li id="wind">Wind 16 mph</li>
                     </ul>
@@ -112,7 +112,7 @@
 
             <div class="weekdaysTemp">
                 <div class="row">
-                    <div class="col">°</div>
+                    <div class="col" id="Mon">°</div>
                     <div class="col border-left">°</div>
                     <div class="col border-left">°</div>
                     <div class="col border-left">°</div>
