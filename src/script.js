@@ -30,6 +30,7 @@ h3.innerHTML = `${hours}:${minutes}`;
  
 // Query Selector accessing the h1
 function showConditions(response) {
+  console.log(response.data);
 document.querySelector("h1").innerHTML = response.data.name;
 //let unixTimeSunrise = new Date(response.data.sys.sunrise * 1000); 
 //let unixHoursSunrise = unixTimeSunrise.getHours();
@@ -45,7 +46,7 @@ document.querySelector("#weather-report").innerHTML = (response.data.weather[0].
 //document.querySelector("#sunset").innerHTML = `Sunset: ${unixHoursSunset}:${unixMinutesSunset}`;
 document.querySelector("#humidity").innerHTML = `Humidity: ${Math.round(response.data.main.humidity)}%`;
 document.querySelector("#wind").innerHTML = `Wind: ${Math.round((response.data.wind.speed)*3.6)} km/h`;
-//document.querySelector("#feels-like").innerHTML = `Feels Like: ${Math.round(response.data.main.feels_like)}°C`;
+document.querySelector("#feels-like").innerHTML = `Feels Like: ${Math.round(response.data.main.feels_like)}°C`;
 
 }
 
@@ -84,7 +85,7 @@ currentButton.addEventListener("click", displayCurrentLocation);
 // Celsius to Fahrenheit
  function toFahrenheit(event) {
 event.preventDefault();
-let currentTempC = 10;
+let currentTempC = (10);
 let tempCtoTempF = (currentTempC * 9 / 5) + 32;
 let tempF = document.querySelector("#current-temperature");
 tempF.innerHTML = Math.round(`${tempCtoTempF}`);

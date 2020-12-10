@@ -2,14 +2,16 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-.container {
+.weather-app {
   max-width: 500px;
   margin: 0 auto;
   border: solid 3px;
-  border-radius: 3px;
+  border-radius: 10px;
   border-color: #ebecee;
   padding-top: 10px;
   padding-bottom: 15px;
+  padding-left: 15px;
+  padding-right: 10px;
 }
 
 h1 {
