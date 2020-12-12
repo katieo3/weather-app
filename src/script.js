@@ -23,20 +23,27 @@ let month = months[date.getMonth()];
 return `${day}, ${month} ${weekDate}, ${hours}:${minutes}`;
 
  
+ //hourFormat((response.data.sys.sunrise * 1000) + (response.data.timezone * 1000));
 }
 
 // Query Selector accessing the h1
 function showConditions(response) {
+  console.log(response.data);
 document.querySelector("h1").innerHTML = response.data.name;
-//let unixTimeSunrise = new Date(response.data.sys.sunrise * 1000); 
-//let unixHoursSunrise = unixTimeSunrise.getHours();
-//let unixMinutesSunrise = "0" + unixTimeSunrise.getMinutes();
+let unixTimeSunrise = new Date((response.data.sys.sunrise * 1000) + (response.data.timezone * 1000)); 
+let unixHoursSunrise = unixTimeSunrise.getHours();
+ if (unixHoursSunrise < 10) {
+ unixHoursSunrise = `0${unixHoursSunrise}`; }
 
-//let unixTimeSunset = new Date(response.data.sys.sunset * 1000); 
-//let unixHoursSunset = unixTimeSunset.getHours();
-//let unixMinutesSunset = "0" + unixTimeSunrise.getMinutes();
-//document.querySelector("#sunrise").innerHTML = `Sunrise: ${unixHoursSunrise}:${unixMinutesSunrise}`;
-//document.querySelector("#sunset").innerHTML = `Sunset: ${unixHoursSunset}:${unixMinutesSunset}`;
+let unixMinutesSunrise = unixTimeSunrise.getMinutes();
+if (unixMinutesSunrise < 10) {
+unixMinutesSunrise = `0${unixMinutesSunrise}`;
+}
+let unixTimeSunset = new Date((response.data.sys.sunset * 1000) + (response.data.timezone * 1000)) 
+let unixHoursSunset = unixTimeSunset.getHours();
+let unixMinutesSunset = unixTimeSunrise.getMinutes();
+document.querySelector("#sunrise").innerHTML = ` Sunrise: ${unixHoursSunrise}:${unixMinutesSunrise}`;
+document.querySelector("#sunset").innerHTML = ` Sunset: ${unixHoursSunset}:${unixMinutesSunset}`;
 
 document.querySelector("#current-temperature").innerHTML = `${Math.round(response.data.main.temp)}`;
 document.querySelector("#weather-report").innerHTML = (response.data.weather[0].description);
@@ -97,6 +104,8 @@ fButton.addEventListener("click", toFahrenheit);
  event.preventDefault();
  let tempCtoTempF = (celsiusTemperature * 9 / 5) + 32;
  let tempFtoTempC = (tempCtoTempF - 32) * 5 / 9;
+cButton.classList.add("active");
+fButton.classList.remove("active")
  let tempC = document.querySelector("#current-temperature");
  tempC.innerHTML = Math.round(`${tempFtoTempC}`);
  }
