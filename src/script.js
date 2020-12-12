@@ -27,7 +27,6 @@ return `${day}, ${month} ${weekDate}, ${hours}:${minutes}`;
 
 // Query Selector accessing the h1
 function showConditions(response) {
-  console.log(response.data);
 document.querySelector("h1").innerHTML = response.data.name;
 //let unixTimeSunrise = new Date(response.data.sys.sunrise * 1000); 
 //let unixHoursSunrise = unixTimeSunrise.getHours();
@@ -43,8 +42,8 @@ document.querySelector("#current-temperature").innerHTML = `${Math.round(respons
 document.querySelector("#weather-report").innerHTML = (response.data.weather[0].description);
 document.querySelector("#humidity").innerHTML = `Humidity: ${Math.round(response.data.main.humidity)}%`;
 document.querySelector("#wind").innerHTML = `Wind: ${Math.round((response.data.wind.speed)*3.6)} km/h`;
-document.querySelector("#feels-like").innerHTML = `Feels Like: ${Math.round(response.data.main.feels_like)}°C`;
 document.querySelector("#dateAPI").innerHTML = formatDate(response.data.dt * 1000);
+document.querySelector("#current-icon").setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 
 }
 

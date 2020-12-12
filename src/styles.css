@@ -60,10 +60,12 @@ h3 {
 .weatherDetails #current-temperature {
   font-weight: 900px;
   font-size: 25px;
+  padding-left: 20px;
 }
 .weatherDetails #weather-report {
   font-weight: bold;
   text-transform: capitalize;
+  padding-left: 20px;
 }
 
 .units {
@@ -93,4 +95,8 @@ li {
 .link {
   text-align: center;
   display: block;
+}
+
+.left {
+  color: #016ec6;
 }
