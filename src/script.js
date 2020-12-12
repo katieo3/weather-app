@@ -38,13 +38,14 @@ document.querySelector("h1").innerHTML = response.data.name;
 //document.querySelector("#sunrise").innerHTML = `Sunrise: ${unixHoursSunrise}:${unixMinutesSunrise}`;
 //document.querySelector("#sunset").innerHTML = `Sunset: ${unixHoursSunset}:${unixMinutesSunset}`;
 
-document.querySelector("#current-temperature").innerHTML = `${Math.round(response.data.main.temp)}°`;
+document.querySelector("#current-temperature").innerHTML = `${Math.round(response.data.main.temp)}`;
 document.querySelector("#weather-report").innerHTML = (response.data.weather[0].description);
 document.querySelector("#humidity").innerHTML = `Humidity: ${Math.round(response.data.main.humidity)}%`;
 document.querySelector("#wind").innerHTML = `Wind: ${Math.round((response.data.wind.speed)*3.6)} km/h`;
 document.querySelector("#dateAPI").innerHTML = formatDate(response.data.dt * 1000);
 document.querySelector("#current-icon").setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
-
+celsiusTemperature = response.data.main.temp;
+fahrenheitTemperature = response.data.main.temp;
 }
 
 function defaultTo(city) {
@@ -82,8 +83,9 @@ currentButton.addEventListener("click", displayCurrentLocation);
 // Celsius to Fahrenheit
  function toFahrenheit(event) {
 event.preventDefault();
-let currentTempC = (10);
-let tempCtoTempF = (currentTempC * 9 / 5) + 32;
+let tempCtoTempF = (celsiusTemperature * 9 / 5) + 32;
+cButton.classList.remove("active");
+fButton.classList.add("active")
 let tempF = document.querySelector("#current-temperature");
 tempF.innerHTML = Math.round(`${tempCtoTempF}`);
 }
@@ -93,15 +95,15 @@ fButton.addEventListener("click", toFahrenheit);
 // Fahrenheit to Celsius
  function toCelsius(event){
  event.preventDefault();
- let currentTempF = 50;
- let tempFtoTemC = (currentTempF - 32) * 5 / 9;
+ let tempCtoTempF = (celsiusTemperature * 9 / 5) + 32;
+ let tempFtoTempC = (tempCtoTempF - 32) * 5 / 9;
  let tempC = document.querySelector("#current-temperature");
- tempC.innerHTML = Math.round(`${tempFtoTemC}`);
+ tempC.innerHTML = Math.round(`${tempFtoTempC}`);
  }
 let cButton = document.querySelector("#celsius");
 cButton.addEventListener("click", toCelsius);
 
-
+let celsiusTemperature = null;
 
 //Dormant page without input
 defaultTo ("Edinburgh");

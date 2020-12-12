@@ -100,3 +100,12 @@ li {
 .left {
   color: #016ec6;
 }
+
+.units .active {
+  color: #000000;
+  cursor: default;
+}
+
+.units .active:hover {
+  text-decoration: none;
+}
