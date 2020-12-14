@@ -5,6 +5,10 @@ body {
 .container {
   width: 100%;
 }
+@media (min-width: 768px) {
+  .container {
+    width: 60%;
+  }
 
 .weather-app {
   max-width: 600px;
