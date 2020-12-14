@@ -3,7 +3,7 @@ body {
 }
 
 .weather-app {
-  max-width: 900px;
+  max-width: 600px;
   margin: 0 auto;
   border: solid 3px;
   border-radius: 10px;
@@ -57,8 +57,9 @@ h3 {
 
 .weatherDetails #current-temperature {
   font-weight: 900px;
-  font-size: 25px;
-  padding-left: 20px;
+  font-size: 35px;
+  padding-left: 10px;
+  padding-top: 10px;
 }
 .weatherDetails #weather-report {
   font-weight: bold;
@@ -78,16 +79,6 @@ ul {
 li {
   list-style: none;
   display: block;
-}
-
-.weekdays {
-  font-size: 20px;
-  text-align: center;
-}
-.weekdaysEmojis {
-  font-size: 20px;
-  text-align: center;
-  color: #016ec6;
 }
 
 .link {
@@ -111,4 +102,15 @@ li {
 .forecast {
   display: block;
   text-align: left;
+}
+.weather-description img {
+  width: 28%;
+}
+
+.weather-forecast img {
+  width: 70%;
+}
+
+.forecast-temperature {
+  font-size: 18px;
 }

@@ -29,6 +29,7 @@ return `${day}, ${month} ${weekDate}, ${hours}:${minutes}`;
 // Query Selector accessing the h1
 function showConditions(response) {
 document.querySelector("h1").innerHTML = response.data.name;
+console.log(response.data)
 let unixTimeSunrise = new Date((response.data.sys.sunrise * 1000) + (response.data.timezone * 1000)); 
 let unixHoursSunrise = unixTimeSunrise.getHours();
  if (unixHoursSunrise < 10) {
@@ -65,7 +66,6 @@ if (minutes < 10) {
 minutes = `0${minutes}`;
 }
 return `${hours}:${minutes}`;
-
 }
 
 function displayForecast(response) {
@@ -73,8 +73,11 @@ let forecastElement = document.querySelector("#forecast")
 forecastElement.innerHTML = null;
 let forecast = null;
 
+
 for (let index = 0; index < 6; index++) {
 forecast = response.data.list[index];
+
+console.log(forecast);
   
 forecastElement.innerHTML += `
  <div class="col-2">
@@ -83,19 +86,12 @@ forecastElement.innerHTML += `
                     </h3>
                     <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" alt="">
                     <div class="forecast-temperature">
-                    <h3>
-                    <strong>
-                    ${Math.round(forecast.main.temp_max)}°                   
-                    </strong>
+                    <strong>${Math.round(forecast.main.temp_max)}° | </strong>
                     ${Math.round(forecast.main.temp_min)}°                   
-                    <h3>
-                   </div>
+                    </div>
                 </div>
 `;
-
 }
-
-
 }
 
 //API call
