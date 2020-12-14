@@ -29,7 +29,6 @@ return `${day}, ${month} ${weekDate}, ${hours}:${minutes}`;
 // Query Selector accessing the h1
 function showConditions(response) {
 document.querySelector("h1").innerHTML = response.data.name;
-console.log(response.data)
 let unixTimeSunrise = new Date((response.data.sys.sunrise * 1000) + (response.data.timezone * 1000)); 
 let unixHoursSunrise = unixTimeSunrise.getHours();
  if (unixHoursSunrise < 10) {
@@ -73,11 +72,8 @@ let forecastElement = document.querySelector("#forecast")
 forecastElement.innerHTML = null;
 let forecast = null;
 
-
 for (let index = 0; index < 6; index++) {
 forecast = response.data.list[index];
-
-console.log(forecast);
   
 forecastElement.innerHTML += `
  <div class="col-2">
@@ -99,7 +95,6 @@ function defaultTo(city) {
 let apiKey = "16643ce7a1c63dfac42b864d84d9384a";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 axios.get(apiUrl).then(showConditions);
-
 
 apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
 axios.get(apiUrl).then(displayForecast);
